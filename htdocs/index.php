@@ -97,7 +97,7 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = 'C:\Bitnami\wappstack-7.1.10-1/frameworks/codeigniter/crowdfunding/system';
+	$system_path = 'C:\Bitnami\wappstack-7.1.10-1/frameworks/codeigniter/system';
 
 /*
  *---------------------------------------------------------------
@@ -114,7 +114,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'C:\Bitnami\wappstack-7.1.10-1/frameworks/codeigniter/crowdfunding/application';
+	$application_folder = 'C:\Bitnami\wappstack-7.1.10-1/frameworks/codeigniter/application';
 
 /*
  *---------------------------------------------------------------

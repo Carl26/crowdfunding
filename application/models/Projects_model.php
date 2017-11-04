@@ -1,9 +1,8 @@
-<?php
-
+<?php 
 class Projects_model extends CI_Model {
 	public $id;
 	public $title;
-	public $desc;
+	public $description;
 	public $start_date;
 	public $duration;
 	public $category;
@@ -12,19 +11,19 @@ class Projects_model extends CI_Model {
 	public $fund_status;
 	public $creator_email;
 
-	public function _construct() {
-		parent::_construct();
+	public function __construct() {
+		parent::__construct();
 		$this->load->database();
 	}
 
 	public function get_all_entries() {
 		$query = $this->db->query("SELECT * FROM projects");
-		return $query->result();
+		return $query->result_array();
 	}
 
 	public function insert_entry() {
 		$this->$title = $_POST['title'];
-		$this->$desc = $_POST['desc'];
+		$this->$description = $_POST['description'];
 		$this->$start_date = $_POST['start_date'];
 		$this->$duration = $_POST['duration'];
 		$this->$category = $_POST['category'];
@@ -39,7 +38,7 @@ class Projects_model extends CI_Model {
 	public function update_entry() {
 		$this->$id = $_POST['id'];
 		$this->$title = $_POST['title'];
-		$this->$desc = $_POST['desc'];
+		$this->$description = $_POST['description'];
 		$this->$start_date = $_POST['start_date'];
 		$this->$duration = $_POST['duration'];
 		$this->$category = $_POST['category'];
@@ -52,7 +51,8 @@ class Projects_model extends CI_Model {
 	}
 
 	public function delete_entry() {
-		$this->db->query("DELETE FROM projects WHERE id = '".$_POST['id']."'");
+		$query = $this->db->query("DELETE FROM projects WHERE id = '".$_POST['id']."'");
+		return $query->result();
 	}
 }
 ?>
