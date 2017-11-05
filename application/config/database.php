@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=crowdfunding;user=postgres;password=123',
+	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=crowdfunding;user=postgres;password=0doudou!',
 	'hostname' => 'pgsql:host=localhost',
 	'username' => 'postgres',
-	'password' => '123',
+	'password' => '0doudou!',
 	'database' => 'crowdfunding',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
