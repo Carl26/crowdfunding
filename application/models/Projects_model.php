@@ -7,7 +7,7 @@ class Projects_model extends CI_Model {
 	public $duration;
 	public $category;
 	public $aim_amount;
-	public $current_raised;
+	public $current_amount;
 	public $fund_status;
 	public $creator_email;
 
@@ -21,6 +21,11 @@ class Projects_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_one_entry($id) {
+		$query = $this->db->query("SELECT * FROM projects WHERE id = ".$id);
+		return $query->row_array();
+	}
+
 	public function insert_entry() {
 		$this->$title = $_POST['title'];
 		$this->$description = $_POST['description'];
@@ -28,11 +33,11 @@ class Projects_model extends CI_Model {
 		$this->$duration = $_POST['duration'];
 		$this->$category = $_POST['category'];
 		$this->$aim_amount = $_POST['aim_amount'];
-		$this->$current_raised = $_POST['current_raised'];
+		$this->$current_amount = $_POST['current_amount'];
 		$this->$fund_status = $_POST['fund_status'];
 		$this->$creator_email = $_POST['creator_email'];
-		// since its too long to add every single item, we just used query builder for simplicity
-		$this->db->insert('projects', $this);
+		$sql = "INSERT INTO projects (title, description, start_date, duration, category, aim_amount, current_amount, fund_status, creator_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		$this->db->query($sql, array($title, $description, $start_date, $duration, $category, $aim_amount, $current_amount, $fund_status, $creator_email));
 	}
 
 	public function update_entry() {
@@ -43,10 +48,9 @@ class Projects_model extends CI_Model {
 		$this->$duration = $_POST['duration'];
 		$this->$category = $_POST['category'];
 		$this->$aim_amount = $_POST['aim_amount'];
-		$this->$current_raised = $_POST['current_raised'];
+		$this->$current_amount = $_POST['current_amount'];
 		$this->$fund_status = $_POST['fund_status'];
 		$this->$creator_email = $_POST['creator_email'];
-		// using query builder, same reason as above
 		$this->db->update('projects', $this);
 	}
 

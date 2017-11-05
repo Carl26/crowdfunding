@@ -9,6 +9,6 @@
         <h4><?php echo $item_details['aim_amount']; ?></h4>
         <h4><?php echo $item_details['current_amount']; ?></h4>
 
-        <p><?php echo anchor('projects/view', 'View details') ?></p>
+        <p><?php echo anchor('projects/'.$item_details['id'], 'View Project '.$item_details['id']) ?></p>
 
 <?php endforeach; ?>
